@@ -1,0 +1,8 @@
+node_modules/
+.nyc_output/
+reports/
+src/**/*.js
+test/**/*.js
+src/**/*.d.ts
+test/**/*.d.ts
+*.map

@@ -1,0 +1,54 @@
+{
+    "author": "Maarten Mulders <mthmulders@users.noreply.github.com>",
+    "bugs": {
+        "url": "https://github.com/mthmulders/stryker-intern-runner/issues"
+    },
+    "description": "A plugin to use Intern tests in Stryker, the JavaScript mutation testing framework",
+    "devDependencies": {
+        "@types/chai": "4.1.7",
+        "@types/chai-as-promised": "7.1.0",
+        "@types/mocha": "^2.2.44",
+        "@types/rimraf": "^2.0.2",
+        "@types/sinon": "^5.0.5",
+        "@types/sinon-chai": "^3.2.0",
+        "intern": ">=4.0.0",
+        "mocha": "^5.2.0",
+        "nyc": "^13.0.1",
+        "rimraf": "^2.6.1",
+        "sinon": "^7.2.0",
+        "sinon-chai": "^3.2.0",
+        "stryker-api": "^0.23.0",
+        "tslint": "^5.12.0",
+        "typescript": "^3.2.1"
+    },
+    "engines": {
+        "node": ">=6"
+    },
+    "homepage": "https://github.com/mthmulders/stryker-intern-runner/",
+    "keywords": [
+        "stryker",
+        "stryker-plugin",
+        "intern",
+        "stryker-test-runner"
+    ],
+    "license": "Apache-2.0",
+    "main": "src/index.js",
+    "nyc": {
+        "exclude": [
+            "test/**",
+            "testResources/**"
+        ]
+    },
+    "name": "stryker-intern-runner",
+    "peerDependencies": {
+        "intern": ">=4.0.0"
+    },
+    "repository": {},
+    "scripts": {
+        "start": "tsc -b -w",
+        "clean": "rimraf \"+(test|src)/**/*+(.d.ts|.js|.map)\" .nyc_output reports coverage",
+        "test": "nyc --reporter=html --report-dir=reports/coverage --check-coverage --lines 80 --functions 80 --branches 75 npm run mocha",
+        "mocha": "mocha \"test/helpers/**/*.js\" \"test/unit/**/*.js\" && mocha --timeout 30000 \"test/integration/**/*.js\" --exit"
+    },
+    "version": "0.0.1"
+}
