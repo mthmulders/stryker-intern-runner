@@ -5,6 +5,7 @@
 
 # Stryker Intern Runner
 A plugin to use [Intern](https://theintern.io/) in [Stryker](https://stryker-mutator.io), the JavaScript mutation testing framework.
+It works with Intern 4 and above.
 
 ## Install
 This package has not yet been published on npm.
