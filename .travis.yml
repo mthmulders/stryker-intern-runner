@@ -4,8 +4,8 @@ node_js:
 - '6'
 install: npm install
 before_install:
-- if [[ `npm -v` = 3* ]]; then npm i -g npm@5; fi
+  - if [[ `npm -v` = 3* ]]; then npm i -g npm@5; fi
 sudo: 'false'
 before_script:
-- npm ls
-- npm run build
+  - npm ls
+  - npm run build
