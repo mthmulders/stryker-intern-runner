@@ -5,6 +5,8 @@ import { global } from '@theintern/common';
 import Test from 'intern/lib/Test';
 import Node from 'intern/lib/executors/Node';
 
+const devnull = require('dev-null');
+
 class InternTestRunner implements TestRunner {
     private readonly testFailedMessage = /One or more tests failed/;
     private readonly log = getLogger(InternTestRunner.name);
@@ -17,7 +19,12 @@ class InternTestRunner implements TestRunner {
         this.intern = (global.intern = new Node());
         this.intern.configure({
             suites: options.fileNames,
-            reporters: 'runner'
+            reporters: [{
+                name: 'runner',
+                options: {
+                    output: devnull()
+                }
+            }]
         });
         this.intern.on('testStart', test => {
             this.log.debug(`${test.id} has started`);
@@ -53,7 +60,7 @@ class InternTestRunner implements TestRunner {
         const status = this.determineRunStatus(reason);
         const tests = this.results;
         this.cleanIntern();
-        
+
         return { errorMessages, status, tests };
     }
 

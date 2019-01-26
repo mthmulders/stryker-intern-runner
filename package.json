@@ -3,6 +3,9 @@
     "bugs": {
         "url": "https://github.com/mthmulders/stryker-intern-runner/issues"
     },
+    "dependencies": {
+        "dev-null": "0.1.1"
+    },
     "description": "A plugin to use Intern tests in Stryker, the JavaScript mutation testing framework",
     "devDependencies": {
         "@types/chai": "4.1.7",
