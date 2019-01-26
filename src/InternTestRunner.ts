@@ -52,9 +52,16 @@ class InternTestRunner implements TestRunner {
         const errorMessages = this.collectErrorMessages();
         const status = this.determineRunStatus(reason);
         const tests = this.results;
-        global.intern = null;
-
+        this.cleanIntern();
+        
         return { errorMessages, status, tests };
+    }
+
+    private cleanIntern(): void {
+        // https://gitter.im/theintern/intern?at=5c4cae7393fe7d5ac0f4fde5
+        global.intern = null;
+        const defaultLoaderPath = require.resolve('intern/loaders/default.js');
+        delete require.cache[defaultLoaderPath];
     }
 
     private determineRunStatus(reason?: Error): RunStatus {
