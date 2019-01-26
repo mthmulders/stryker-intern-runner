@@ -12,7 +12,7 @@ For now, you can clone this repository and install it yourself.
 
 ## Configuring
 
-You can configure the `stryker-karma-runner` using the `stryker.conf.js` config file.
+You can configure the `stryker-intern-runner` using the `stryker.conf.js` config file.
 
 ```javascript
 // Stryker.conf.js
