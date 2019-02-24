@@ -71,6 +71,26 @@ describe('Integration test for Strykers Intern runner', () => {
         expect(result.errorMessages).to.be.empty;
         expect(result.tests.length).to.eq(0);
     });
+
+    it('should detect a test that was skipped', async() => {
+        // Arrange
+        processCwdStub.returns(getProjectRoot('exampleProject'));
+        const testRunner = new InternTestRunner({
+            fileNames: [ 'tests/unit/AddSkippedSpec.js' ],
+            port: 65535,
+            strykerOptions: defaultStrykerOptions
+        });
+
+        // Act
+        const result = await testRunner.run({ timeout: 500 });
+
+        // Assert
+        expect(result.status).to.equal(RunStatus.Complete);
+        expect(result.errorMessages).to.be.empty;
+        expect(result.tests.length).to.eq(1);
+        expect(result.tests.map(r => r.status)).to.contain(TestStatus.Skipped);
+        expect(result.tests.map(r => r.status)).not.to.contain(TestStatus.Success);
+    });
 });
 
 const getProjectRoot = (name: string) => path.join(projectRoot, 'testResources', name);
