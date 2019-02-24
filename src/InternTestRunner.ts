@@ -36,14 +36,19 @@ class InternTestRunner implements TestRunner {
     }
 
     public async run(options: RunOptions): Promise<RunResult> {
-        const promise = this.intern.run();
-        setTimeout(() => {
-            this.cancelled = true;
-            promise.cancel();
-        }, options.timeout);
-        return promise.then(
-            () => this.createRunResult(),
-            (reason) => this.createRunResult(reason));
+        return new Promise((resolve, reject) => {
+            const promise = this.intern.run();
+            promise.then(
+                () => resolve(this.createRunResult()),
+                (error) => resolve(this.createRunResult(error)),
+            );
+            setTimeout(() => {
+                this.log.warn(`Timeout of {} ms has expired, cancelling Intern run`, options.timeout);
+                promise.cancel();
+                this.cancelled = true;
+                resolve(this.createRunResult());
+            }, options.timeout);
+        });
     }
 
     private createTestResult(test: Test): TestResult {
@@ -76,6 +81,8 @@ class InternTestRunner implements TestRunner {
             return RunStatus.Timeout;
         } else if (!reason) {
             return RunStatus.Complete;
+        // Intern considers a test failure a run failure, but this is not true for Stryker.
+        // Stryker considers the run "Complete", with one or more failed testcases as a result.
         } else if (reason.message.match(this.testFailedMessage)) {
             return RunStatus.Complete;
         } else {
