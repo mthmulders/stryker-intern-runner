@@ -21,7 +21,7 @@
         "sinon": "^7.3.2",
         "sinon-chai": "^3.2.0",
         "stryker-api": "^0.23.0",
-        "tslint": "^5.12.0",
+        "tslint": "^5.16.0",
         "typescript": "^3.2.1"
     },
     "engines": {
