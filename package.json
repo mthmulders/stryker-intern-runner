@@ -22,7 +22,7 @@
         "sinon-chai": "^3.2.0",
         "stryker-api": "^0.23.0",
         "tslint": "^5.20.1",
-        "typescript": "^3.7.3"
+        "typescript": "^3.7.4"
     },
     "engines": {
         "node": ">=6"
