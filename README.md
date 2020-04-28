@@ -10,9 +10,9 @@ It works with Intern 4 and above.
 ## Status
 A note on the status of this work.
 It currently does the following:
-1. Detects when Intern has ran a test
-1. Detects when Intern has ran a test that failed
-1. Detects when Intern has ran a test that timed out
+1. Detects when Intern has run a test
+1. Detects when Intern has run a test that failed
+1. Detects when Intern has run a test that timed out
 1. Detects when Intern has skipped a test
 
 But I guess it's far from complete yet.
