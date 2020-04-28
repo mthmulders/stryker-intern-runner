@@ -7,6 +7,19 @@
 A plugin to use [Intern](https://theintern.io/) in [Stryker](https://stryker-mutator.io), the JavaScript mutation testing framework.
 It works with Intern 4 and above.
 
+## Status
+A note on the status of this work.
+It currently does the following:
+1. Detects when Intern has ran a test
+1. Detects when Intern has ran a test that failed
+1. Detects when Intern has ran a test that timed out
+1. Detects when Intern has skipped a test
+
+But I guess it's far from complete yet.
+Adding coverage support would be a great way to make it run _faster_.
+There's probably a few other things that need to be ironed out.
+With that said, I'm more than happy with any contributions. 
+
 ## Install
 This package has not yet been published on npm.
 For now, you can clone this repository and install it yourself.
