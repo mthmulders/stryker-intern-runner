@@ -18,6 +18,7 @@ class InternTestRunner implements TestRunner {
     public constructor(options: RunnerOptions, processEnvRef?: NodeJS.ProcessEnv) {
         this.intern = (global.intern = new Node());
         this.intern.configure({
+            bail: true,
             suites: options.fileNames,
             reporters: [{
                 name: 'runner',
