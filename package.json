@@ -18,7 +18,7 @@
         "@typescript-eslint/parser": "2.34.0",
         "eslint": "6.8.0",
         "intern": ">=4.8.7",
-        "mocha": "^7.2.0",
+        "mocha": "^8.0.1",
         "nyc": "^15.1.0",
         "rimraf": "^3.0.2",
         "sinon": "^9.0.2",
