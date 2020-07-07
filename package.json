@@ -9,7 +9,7 @@
     "description": "A plugin to use Intern tests in Stryker, the JavaScript mutation testing framework",
     "devDependencies": {
         "@types/chai": "4.2.11",
-        "@types/chai-as-promised": "7.1.2",
+        "@types/chai-as-promised": "7.1.3",
         "@types/mocha": "^7.0.2",
         "@types/rimraf": "^3.0.0",
         "@types/sinon": "^9.0.4",
