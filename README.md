@@ -20,6 +20,11 @@ Adding coverage support would be a great way to make it run _faster_.
 There's probably a few other things that need to be ironed out.
 With that said, I'm more than happy with any contributions. 
 
+### Deprecation note
+Given how much Stryker has changed, most of the Stryker related code is outdated.
+This repo may give some inspiration on how to programmatically interact with Intern.
+But for the Stryker part, it's best to refer to the [Create a plugin](https://stryker-mutator.io/docs/stryker/guides/create-a-plugin/) guide from the Stryker documentation.
+
 ## Install
 This package has not yet been published on npm.
 For now, you can clone this repository and install it yourself.
